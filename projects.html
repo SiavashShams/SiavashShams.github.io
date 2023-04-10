@@ -33,29 +33,6 @@ MathJax.Hub.Config({
 <div id="toptitle">
 <h1> Notable Projects</h1>
 </div>
-<h2>A Comprehensive Framework for Control of Complex Networks</h2>
-<p>
-  This framework consists of optimal driver node selection to achieve controllability of the network and choosing the method of calculation of the optimal input regarding the type of the optimization problem. In order to demonstrate our framework, an illustrative example of applying it to control people's opinions in a social network is provided below:
-</p>
-<p>
-  The network we are going to investigate is a social network consisting of 62 people who are connected to each other. This network is undirected and weighted according to the level of communication between people. The people of this network are surveyed about a topic during a period. We intend to manipulate people's opinions about that topic.
-    <p>
-      First, we determine the nodes that have the ability to control the network with the lowest energy. The importance of each person for minimum-cost control of the network is shown in the left figure. The selected nodes of the network are highlighted in red in the right figure.
-    </p>
-  <figure>
-    <img src="./images/node_selection.png" alt="DeepDDR" style="width:100%">
-  </figure>
-</p>
-
-<p>
-  According to the type of problem (discrete time and long-term control horizon), We choose the proper control method and apply the input to the driver nodes.</p>
-<p>
-  People's initial opinions (1 means extreme agreement and -1 means extreme disagreement) are shown in the left figure. After applying the inputs on the driver nodes, the opinion of the network goes towards the desired state, i.e. maximum agreement (right figure).
-</p>
-<figure>
-  <img src="./images/opinion_control.png" alt="DeepDDR" style="width:100%">
-</figure>
-The source code for this project is available upon reasonable request.
 <h2>Simulation of a Smart House </h2>
 In this project, we will simulate a smart house equipped with IoT devices to control and monitor the lights, open and close a door, and regulate the home's temperature. A user interface dashboard is created in the ThingsBoard IoT platform in order to simulate the smart house. The data transferring is done via MQTT protocols.
 
