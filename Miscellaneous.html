@@ -19,6 +19,38 @@ MathJax.Hub.Config({
 });
 </script>
 <!-- End MathJax -->
+
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gallery img {
+    margin: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .main-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .main-image img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  function swapImage(newSrc, desc) {
+    document.getElementById('mainImage').src = newSrc;
+    document.getElementById('imageDesc').innerText = desc;
+  }
+</script>
+
+
 </head>
 <body>
 <table summary="Table for page layout." id="tlayout">
@@ -48,62 +80,24 @@ I am a writer for  <a href="https://trading-data-analysis.pro/" target=&ldquo;bl
   </div>
 </p>
 
-<h2>Some Shots by Me! </h2>
-I love to share my photographs with people and hear their comments. Here are some pictures I've taken.
+<h2>Some Shots by Me!</h2>
+<p>I love to share my photographs with people and hear their comments. Here are some pictures I've taken.</p>
 
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="images/n2.jpg">
-      <img src="images/n2.jpg" alt="Cinque Terre" >
-    </a>
-    <div class="desc">What does the fox say?</div>
-  </div>
+<div class="main-image">
+  <img id="mainImage" src="images/n2.jpg" alt="Main Image">
+  <div id="imageDesc" class="desc">What does the fox say?</div>
 </div>
 
-<div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="images/n4.jpg">
-        <img src="images/n4.jpg" >
-      </a>
-      <div class="desc">Mysterious chameleon</div>
-    </div>
-  </div>
-  
-  
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="images/n5.jpg">
-        <img src="images/n5.jpg">
-      </a>
-      <div class="desc">super exhausted chameleon</div>
-    </div>
-  </div>
-  
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="images/n1.jpg">
-        <img src="images/n1.jpg" >
-      </a>
-      <div class="desc">Me and the sunset</div>
-    </div>
-  </div>
-  
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="images/n6.jpg">
-        <img src="images/n6.JPG" >
-      </a>
-      <div class="desc">Flowers</div>
-    </div>
-  </div> 
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="images/n7.jpg">
-        <img src="images/n7.jpg">
-      </a>
-      <div class="desc">More flowers</div>
-    </div>
-  </div> 
+<div class="gallery">
+  <img src="images/n2.jpg" alt="What does the fox say?" onclick="swapImage('images/n2.jpg', 'What does the fox say?')">
+  <img src="images/n4.jpg" alt="Mysterious chameleon" onclick="swapImage('images/n4.jpg', 'Mysterious chameleon')">
+  <img src="images/n5.jpg" alt="Super exhausted chameleon" onclick="swapImage('images/n5.jpg', 'Super exhausted chameleon')">
+  <img src="images/n1.jpg" alt="Me and the sunset" onclick="swapImage('images/n1.jpg', 'Me and the sunset')">
+  <img src="images/n6.jpg" alt="Flowers" onclick="swapImage('images/n6.jpg', 'Flowers')">
+  <img src="images/n7.jpg" alt="More flowers" onclick="swapImage('images/n7.jpg', 'More flowers')">
+  <!-- Add more images here in the same format -->
+</div>
+
 
 </td>
 </tr>
