@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Siavash Shams</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0XMWHTYPFW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0XMWHTYPFW');
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Academic Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern.css">
+    
+    <!-- MathJax -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    
+    <style>
+        .project-card {
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .project-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Siavash Shams</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Miscellaneous.html">Miscellaneous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h1>Notable Projects</h1>
+        </div>
+    </section>
+
+    <!-- Notable Projects Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Smart House Project -->
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2>Simulation of a Smart House</h2>
+                    <p>
+                        In this project, we will simulate a smart house equipped with IoT devices to control and monitor the lights, open and close a door, and regulate the home's temperature. A user interface dashboard is created in the ThingsBoard IoT platform in order to simulate the smart house. The data transferring is done via MQTT protocols.
+                    </p>
+                    <p>
+                        To illustrate the data transfer between the server and the IoT dashboard, we run our simulation script. As a result of running the code temperature will fluctuate, the door will continue to close and open randomly, and the lights will turn on and off randomly.
+                    </p>
+                    <a href="https://github.com/SiavashShams/Simulation-of-a-Smart-House" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-github me-2"></i>View on GitHub
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <img src="./images/Dashboard.png" alt="Smart House Dashboard" class="img-fluid rounded shadow">
+                            <p class="text-center text-muted mt-2">Dashboard in ThingsBoard</p>
+                        </div>
+                        <div class="col-md-12">
+                            <img src="./images/App_log.png" alt="App Log" class="img-fluid rounded shadow">
+                            <p class="text-center text-muted mt-2">App log after running</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RL Path Planning Project -->
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
+                    <h2>Reinforcement Learning Based Path Planning for a Robot</h2>
+                    <p>
+                        This project is about finding the optimal path between a start point and an endpoint in an environment with blocks. Reaching the end goal has a reward, and hitting or moving close to the obstacles has negative rewards (punishments). Also, there is little punishment for moving for the robot.
+                    </p>
+                    <p>
+                        In order to guide the robot in the environment, we will use the policy iteration method to obtain the value of each block in the environment. The robot will decide its next action based on the value of its neighbouring blocks (there are 8 neighbouring blocks in general, but this number changes if the robot is on the circumference of the environment).
+                    </p>
+                    <a href="https://github.com/SiavashShams/Reinforcement-Learning-Based-Path-Planning-for-a-Robot" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-github me-2"></i>View on GitHub
+                    </a>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <img src="./images/RL.png" alt="RL Environment" class="img-fluid rounded shadow">
+                            <p class="text-center text-muted mt-2">Reinforcement Learning Environment</p>
+                        </div>
+                        <div class="col-md-12">
+                            <img src="./images/Value_map.png" alt="Value Map" class="img-fluid rounded shadow">
+                            <p class="text-center text-muted mt-2">Value Map after Policy Iteration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Projects Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="mb-5">Selected Course Projects</h2>
+            
+            <div class="row">
+                <!-- DQN for LunarLander Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/Lunarlander.PNG" alt="LunarLander">
+                        <div class="card-body">
+                            <h3 class="card-title">DQN for OpenAI LunarLander-v2</h3>
+                            <p class="card-text">LunarLander-v2 learning how to land efficiently using DQN and DDQN for training DQN.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/DQN-for-OpenAI-LunarLander-v2" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GANs and VAEs Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/Gans.png" alt="GANs and VAEs">
+                        <div class="card-body">
+                            <h3 class="card-title">Generating Stuff with GANs and VAEs</h3>
+                            <p class="card-text">Generating images in different contexts using GANs and Variational Autoencoders.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Generating-Stuff-with-GANs-and-VAEs" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contextual Embeddings Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/stopingHate.jpg" alt="HateBert">
+                        <div class="card-body">
+                            <h3 class="card-title">Contextual Embeddings Using RNNs</h3>
+                            <p class="card-text">Using HateBert and two RNNs as its last trainable layers to classify context of the tweets in the dataset.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Contextual-Embeddings-Using-HateBert-and-RNNs" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stock Market Prediction Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/stock.jpg" alt="Stock Market">
+                        <div class="card-body">
+                            <h3 class="card-title">Stock Market Prediction</h3>
+                            <p class="card-text">Predicting the price of Apple and Google stock using RNN, LSTM, GRU.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Stock-Market-Prediction" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Object Detection Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/Object_detection.jpg" alt="Object Detection">
+                        <div class="card-body">
+                            <h3 class="card-title">Object Detection Using YOLOv5</h3>
+                            <p class="card-text">Detecting bocce balls and labeling their color using the YOLOv5 object detection model.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Object-Detection-Using-YOLOv5" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Route Planning Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/Routing.png" alt="Route Planning">
+                        <div class="card-body">
+                            <h3 class="card-title">Route Planning in Tehran</h3>
+                            <p class="card-text">Dynamic programming is used to determine the best (shortest) path between two desired points in the city of Tehran.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Route-Planning-in-Tehran-with-Dynamic-Programming" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blood Sugar Level Control Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/blood.jpg" alt="Blood Sugar">
+                        <div class="card-body">
+                            <h3 class="card-title">Blood Sugar Level Control</h3>
+                            <p class="card-text">The blood sugar dynamics are modeled with an LTI system and we try to regulate this system.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/Blood-Sugar-Level-Control" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EEG Signal Processing Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card shadow">
+                        <img src="./images/brain_waves.png" alt="EEG Signal">
+                        <div class="card-body">
+                            <h3 class="card-title">EEG Signal Processing</h3>
+                            <p class="card-text">Analyzing brain waves during stages of sleep and specifying the stage of sleep for unlabelled recorded signals.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SiavashShams/EEG-Signal-Processing" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 Siavash Shams. All rights reserved.</p>
+                    <div class="social-icons">
+                        <a href="mailto:ss6928@columbia.edu" target="_blank" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/siavash-shams-90a735176/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=xo02sD0AAAAJ&sortby=title" target="_blank" title="Google Scholar">
+                            <i class="ai ai-google-scholar"></i>
+                        </a>
+                        <a href="https://github.com/SiavashShams" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
