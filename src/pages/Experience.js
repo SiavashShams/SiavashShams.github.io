@@ -310,7 +310,7 @@ const Experience = () => {
       details: (
         <ul>
           <li>Specialization in Machine Learning and Signal Processing</li>
-          <li>GPA: 3.9/4.0</li>
+          <li>GPA: 4.09/4.0</li>
           <li>Relevant Coursework: Deep Learning, Machine Learning, Natural Language Processing, Computer Vision, Advanced Topics in AI</li>
           <li>Graduate Research Assistant at NeuroTech Lab under Prof. Mesgarani, focusing on audio representation learning</li>
         </ul>
@@ -325,7 +325,7 @@ const Experience = () => {
       details: (
         <ul>
           <li>Specialization in Control Systems and Signal Processing</li>
-          <li>GPA: 3.8/4.0</li>
+          <li>GPA: 3.91/4.0</li>
           <li>Relevant Coursework: Digital Signal Processing, Linear Control Systems, Stochastic Processes, Linear Algebra</li>
           <li>Research Assistant at Neural Systems Lab, working on EEG signal processing and seizure control</li>
         </ul>
