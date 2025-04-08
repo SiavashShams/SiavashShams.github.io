@@ -321,7 +321,7 @@ const Experience = () => {
       degree: "Bachelor of Science in Electrical Engineering",
       school: "University of Tehran",
       logo: "/images/ut_logo.png",
-      period: "2017 - 2021",
+      period: "2018 - 2022",
       details: (
         <ul>
           <li>Specialization in Control Systems and Signal Processing</li>
