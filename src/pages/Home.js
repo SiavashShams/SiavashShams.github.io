@@ -269,6 +269,9 @@ const Home = () => {
                   <PublicationLink href="https://arxiv.org/abs/2506.00381" target="_blank">
                     <i className="fas fa-file-pdf"></i> arXiv
                   </PublicationLink>
+                  <PublicationLink href="https://github.com/SiavashShams/neuro2semantic" target="_blank">
+                    <FontAwesomeIcon icon={faGithub} /> Code
+                  </PublicationLink>
                 </PublicationLinks>
               </PublicationContent>
             </Publication>
