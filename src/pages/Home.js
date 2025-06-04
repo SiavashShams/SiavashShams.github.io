@@ -261,6 +261,20 @@ const Home = () => {
           <PublicationList variants={staggerContainer}>
             <Publication variants={slideUp}>
               <PublicationContent>
+                <PublicationTitle>Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of Continuous Language from Human Intracranial EEG</PublicationTitle>
+                <PublicationAuthors>
+                  <span className="highlight">S. Shams</span>, R. Antonello, G. Mischler, S. Bickel, A. Mehta, N. Mesgarani
+                </PublicationAuthors>
+                <PublicationLinks>
+                  <PublicationLink href="https://arxiv.org/abs/2506.00381" target="_blank">
+                    <i className="fas fa-file-pdf"></i> arXiv
+                  </PublicationLink>
+                </PublicationLinks>
+              </PublicationContent>
+            </Publication>
+
+            <Publication variants={slideUp}>
+              <PublicationContent>
                 <PublicationTitle>SSAMBA: Self-Supervised Audio Representation Learning with Mamba State Space Model</PublicationTitle>
                 <PublicationAuthors>
                   <span className="highlight">S. Shams</span>, S. S. Dindar, X. Jiang, N. Mesgarani
