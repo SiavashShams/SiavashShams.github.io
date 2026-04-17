@@ -228,7 +228,7 @@ const Experience = () => {
           </li>
         </ul>
       ),
-      position: "left"
+      position: "right"
     },
     {
       id: 2,
@@ -248,7 +248,7 @@ const Experience = () => {
           </li>
         </ul>
       ),
-      position: "right"
+      position: "left"
     },
     {
       id: 3,
@@ -273,7 +273,7 @@ const Experience = () => {
           </li>
         </ul>
       ),
-      position: "left"
+      position: "right"
     },
     {
       id: 4,
@@ -293,7 +293,7 @@ const Experience = () => {
           </li>
         </ul>
       ),
-      position: "right"
+      position: "left"
     },
     {
       id: 5,
@@ -313,7 +313,7 @@ const Experience = () => {
           </li>
         </ul>
       ),
-      position: "left"
+      position: "right"
     }
   ];
 
