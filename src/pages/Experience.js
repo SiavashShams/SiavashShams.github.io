@@ -215,9 +215,26 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      title: "Software Engineer",
+      company: "Virtue AI",
+      date: "Nov 2025 - Present",
+      description: (
+        <ul>
+          <li>
+            Working on AI safety, evaluations, and optimization.
+          </li>
+          <li>
+            Bridging research to production-ready systems.
+          </li>
+        </ul>
+      ),
+      position: "left"
+    },
+    {
+      id: 2,
       title: "Machine Learning Engineer",
       company: "Sciforium",
-      date: "Oct 2024 - Present",
+      date: "Oct 2024 - Nov 2025",
       description: (
         <ul>
           <li>
@@ -234,7 +251,7 @@ const Experience = () => {
       position: "right"
     },
     {
-      id: 2,
+      id: 3,
       title: "Research Assistant",
       company: "Neural Acoustic Processing Lab, Columbia University",
       date: "Sep 2023 - Dec 2024",
@@ -259,7 +276,7 @@ const Experience = () => {
       position: "left"
     },
     {
-      id: 3,
+      id: 4,
       title: "Research Assistant",
       company: "Advanced Control Systems Laboratory, University of Tehran",
       date: "Jan 2022 - Sep 2023",
@@ -279,7 +296,7 @@ const Experience = () => {
       position: "right"
     },
     {
-      id: 4,
+      id: 5,
       title: "Research Assistant",
       company: "Advanced Robotics and Intelligent Systems Laboratory, University of Tehran",
       date: "Jun 2022 - Sep 2022",

@@ -223,7 +223,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <HeroImage src="./images/me.JPG" alt="Siavash Shams" />
+              <HeroImage src="./images/IMG_5160.jpg" alt="Siavash Shams" />
             </motion.div>
           </HeroImageContainer>
         </HeroContainer>
@@ -266,6 +266,9 @@ const Home = () => {
                   <span className="highlight">S. Shams</span>, R. Antonello, G. Mischler, S. Bickel, A. Mehta, N. Mesgarani
                 </PublicationAuthors>
                 <PublicationLinks>
+                  <PublicationLink href="https://www.isca-archive.org/interspeech_2025/shams25_interspeech.pdf" target="_blank">
+                    <FontAwesomeIcon icon={faExternalLinkAlt} /> Published
+                  </PublicationLink>
                   <PublicationLink href="https://arxiv.org/abs/2506.00381" target="_blank">
                     <i className="fas fa-file-pdf"></i> arXiv
                   </PublicationLink>
