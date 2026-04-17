@@ -51,29 +51,51 @@ const ExperienceItem = styled(motion.div)`
 `;
 
 const ExperienceDate = styled.div`
+  position: absolute;
+  top: 5px;
   min-width: 150px;
-  text-align: right;
-  padding-right: 2rem;
   font-weight: 600;
   color: var(--primary-color);
-  position: relative;
-  
+
   @media (max-width: 768px) {
     display: none;
   }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: var(--background-color);
-    border: 3px solid var(--primary-color);
-    top: 5px;
-    border-radius: 50%;
-    z-index: 1;
-  }
+
+  ${({ position }) => position === 'left' ? `
+    left: 50%;
+    padding-left: calc(2rem + 10px);
+    text-align: left;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: -10px;
+      top: 0;
+      background-color: var(--background-color);
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      z-index: 1;
+    }
+  ` : `
+    right: 50%;
+    padding-right: calc(2rem + 10px);
+    text-align: right;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      top: 0;
+      background-color: var(--background-color);
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      z-index: 1;
+    }
+  `}
 `;
 
 const ExperienceContent = styled(Card)`
@@ -368,7 +390,7 @@ const Experience = () => {
         >
           {experiences.map((exp) => (
             <ExperienceItem key={exp.id} variants={slideUp}>
-              <ExperienceDate>{exp.date}</ExperienceDate>
+              <ExperienceDate position={exp.position}>{exp.date}</ExperienceDate>
               <ExperienceContent position={exp.position}>
                 <MobileDate>{exp.date}</MobileDate>
                 <ExperienceTitle>{exp.title}</ExperienceTitle>
