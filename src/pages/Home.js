@@ -223,7 +223,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <HeroImage src="./images/me.JPG" alt="Siavash Shams" />
+              <HeroImage src="./images/IMG_5160.jpg" alt="Siavash Shams" />
             </motion.div>
           </HeroImageContainer>
         </HeroContainer>

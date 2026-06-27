@@ -51,29 +51,51 @@ const ExperienceItem = styled(motion.div)`
 `;
 
 const ExperienceDate = styled.div`
+  position: absolute;
+  top: 5px;
   min-width: 150px;
-  text-align: right;
-  padding-right: 2rem;
   font-weight: 600;
   color: var(--primary-color);
-  position: relative;
-  
+
   @media (max-width: 768px) {
     display: none;
   }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: var(--background-color);
-    border: 3px solid var(--primary-color);
-    top: 5px;
-    border-radius: 50%;
-    z-index: 1;
-  }
+
+  ${({ position }) => position === 'left' ? `
+    left: 50%;
+    padding-left: calc(2rem + 10px);
+    text-align: left;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: -10px;
+      top: 0;
+      background-color: var(--background-color);
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      z-index: 1;
+    }
+  ` : `
+    right: 50%;
+    padding-right: calc(2rem + 10px);
+    text-align: right;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      top: 0;
+      background-color: var(--background-color);
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      z-index: 1;
+    }
+  `}
 `;
 
 const ExperienceContent = styled(Card)`
@@ -276,21 +298,25 @@ const Experience = () => {
     },
     {
       id: 3,
-      title: "Graduate Research Assistant",
+      title: "Research Assistant",
       company: "Neural Acoustic Processing Lab, Columbia University",
       date: "Sep 2023 - Dec 2024",
       logo: "/images/columbia_logo.png",
       description: (
         <ul>
           <li>
-            Led SSAMBA, a self-supervised audio foundation model on the Mamba state-space architecture, 2x faster with
-            97.8% less GPU memory than transformers (SLT 2024; top-1% most-cited CS paper of 2025).
+            Led the development of auditory attention decoding tools using Transformer models and ECoG neural data, achieving a
+            15% improvement in decoding accuracy.
           </li>
           <li>
-            Built Neuro2Semantic, a multimodal framework that reconstructs language from human intracranial EEG (Interspeech 2025).
+            Authored and implemented SSAMBA, a self-supervised audio representation learning model accepted at SLT 2024,
+            surpassing Transformer models in speed by 2x and reducing GPU memory consumption by 97.8%.
           </li>
           <li>
-            Peer reviewer for ICLR 2025 and 2026 and NeurIPS 2026.
+            Innovated multimodal learning techniques to improve model interpretability, advancing brain research.
+          </li>
+          <li>
+            Served as a reviewer for ICLR 2025, evaluating cutting-edge research in machine learning and neuroscience.
           </li>
         </ul>
       ),
@@ -311,7 +337,7 @@ const Experience = () => {
             Tested the framework for desynchronization of brain networks to stop epileptic seizures.
           </li>
           <li>
-            Contributed to a paper on epileptic seizure control using data-driven approaches, published at an IEEE conference.
+            Contributed to a paper on epileptic seizure control using data-driven approaches, which was published in an IEEE conference.
           </li>
         </ul>
       ),
@@ -332,7 +358,7 @@ const Experience = () => {
             Developed a low-cost, efficient, and specific movement data acquisition system to motivate patients.
           </li>
           <li>
-            Conducted experiments to evaluate the designed platform, with findings submitted to ICRoM 2022.
+            Conducted experiments to evaluate the designed platform, with findings submitted to ICROM2022.
           </li>
         </ul>
       ),
@@ -391,7 +417,7 @@ const Experience = () => {
         >
           {experiences.map((exp) => (
             <ExperienceItem key={exp.id} variants={slideUp}>
-              <ExperienceDate>{exp.date}</ExperienceDate>
+              <ExperienceDate position={exp.position}>{exp.date}</ExperienceDate>
               <ExperienceContent position={exp.position}>
                 <MobileDate>{exp.date}</MobileDate>
                 {exp.logo && (
