@@ -166,7 +166,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Machine Learning Engineer | MSc in Electrical Engineering from Columbia University
+              Machine Learning Engineer | LLM Safety, Security & Evaluation · Agentic AI · Foundation-Model Training & Inference
             </HeroSubtitle>
             
             <SocialLinks>
@@ -180,7 +180,7 @@ const Home = () => {
               </SocialLink>
               
               <SocialLink 
-                href="https://www.linkedin.com/in/siavash-shams-90a735176/" 
+                href="https://www.linkedin.com/in/siavashshams/"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
               >
@@ -223,7 +223,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <HeroImage src="./images/IMG_5160.jpg" alt="Siavash Shams" />
+              <HeroImage src="./images/me.JPG" alt="Siavash Shams" />
             </motion.div>
           </HeroImageContainer>
         </HeroContainer>
@@ -238,10 +238,11 @@ const Home = () => {
           <motion.div variants={slideUp}>
             <SectionTitle>About Me</SectionTitle>
             <Text>
-              I am a Machine Learning Engineer with an MSc in Electrical Engineering from Columbia University, specializing in deep
-              learning and Large Language Models (LLMs). With experience in cutting-edge research and practical projects, I am passionate about
-              solving complex problems and building innovative solutions. I am always open to collaborations and opportunities to work
-              on impactful projects.
+              I am a Machine Learning Engineer with an M.S. in Electrical Engineering from Columbia University. I specialize in
+              LLM safety, security, and evaluation, agentic AI, and foundation-model training and inference. I build open-source
+              evaluation infrastructure for LLM guardrails, train and fine-tune 1B+ parameter foundation models with post-training
+              (SFT/RLHF/DPO/GRPO) and quantization, and turn cutting-edge research into production systems. Always open to
+              collaborating on impactful, frontier-AI work.
             </Text>
           </motion.div>
         </Container>

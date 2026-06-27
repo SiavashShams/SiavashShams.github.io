@@ -51,51 +51,29 @@ const ExperienceItem = styled(motion.div)`
 `;
 
 const ExperienceDate = styled.div`
-  position: absolute;
-  top: 5px;
   min-width: 150px;
+  text-align: right;
+  padding-right: 2rem;
   font-weight: 600;
   color: var(--primary-color);
-
+  position: relative;
+  
   @media (max-width: 768px) {
     display: none;
   }
-
-  ${({ position }) => position === 'left' ? `
-    left: 50%;
-    padding-left: calc(2rem + 10px);
-    text-align: left;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      left: -10px;
-      top: 0;
-      background-color: var(--background-color);
-      border: 3px solid var(--primary-color);
-      border-radius: 50%;
-      z-index: 1;
-    }
-  ` : `
-    right: 50%;
-    padding-right: calc(2rem + 10px);
-    text-align: right;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      right: -10px;
-      top: 0;
-      background-color: var(--background-color);
-      border: 3px solid var(--primary-color);
-      border-radius: 50%;
-      z-index: 1;
-    }
-  `}
+  
+  &:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--background-color);
+    border: 3px solid var(--primary-color);
+    top: 5px;
+    border-radius: 50%;
+    z-index: 1;
+  }
 `;
 
 const ExperienceContent = styled(Card)`
@@ -147,6 +125,21 @@ const MobileDate = styled.p`
   
   @media (max-width: 768px) {
     display: block;
+  }
+`;
+
+const ExperienceLogo = styled.div`
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.75rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 3px;
   }
 `;
 
@@ -237,16 +230,23 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Software Engineer",
-      company: "Virtue AI",
+      title: "Founding Software Engineer",
+      company: "Virtue AI (acqui-hired by Meta Superintelligence Labs, 2026)",
       date: "Nov 2025 - Present",
+      logo: "/images/virtue_logo.png",
       description: (
         <ul>
           <li>
-            Working on AI safety, evaluations, and optimization.
+            Built and open-sourced Guard Eval Harness (PyPI: geh), a CLI framework benchmarking LLM guardrail, moderation,
+            and safety models across 80+ jailbreak, prompt-injection, toxicity, and secure-code benchmarks (text and image).
           </li>
           <li>
-            Bridging research to production-ready systems.
+            Designed an agentic-AI code-safety evaluation suite (6 benchmark suites) that runs coding agents in sandboxed
+            environments and scores generated code for correctness and security.
+          </li>
+          <li>
+            Shipped guardrail safety models to production for 4+ enterprise customers on $1M+/year accounts: Dockerized
+            deployments, CVE fixes, and end-to-end feature delivery.
           </li>
         </ul>
       ),
@@ -254,19 +254,21 @@ const Experience = () => {
     },
     {
       id: 2,
-      title: "Machine Learning Engineer",
+      title: "Founding Machine Learning Engineer",
       company: "Sciforium",
-      date: "Oct 2024 - Nov 2025",
+      date: "Nov 2024 - Nov 2025",
+      logo: "/images/sciforium_logo.png",
       description: (
         <ul>
           <li>
-            Developing and optimizing large language models, improving inference performance and efficiency on various hardware platforms.
+            Built distributed training and fine-tuning pipelines for 1B+ parameter foundation models on a multi-node GPU
+            cluster, with post-training (SFT/RLHF/DPO/GRPO) and quantization.
           </li>
           <li>
-            Working on vision transformer architectures for image classification tasks, focusing on efficiency and accuracy trade-offs.
+            Optimized the inference pipeline for 3x faster serving over the baseline, with CI/CD, automated tests, and deployment.
           </li>
           <li>
-            Contributing to research validation and reproducibility initiatives, implementing workflows that enhance team collaboration and code review processes.
+            Worked across multimodal (audio, text) foundation models and generative AI.
           </li>
         </ul>
       ),
@@ -274,24 +276,21 @@ const Experience = () => {
     },
     {
       id: 3,
-      title: "Research Assistant",
+      title: "Graduate Research Assistant",
       company: "Neural Acoustic Processing Lab, Columbia University",
       date: "Sep 2023 - Dec 2024",
+      logo: "/images/columbia_logo.png",
       description: (
         <ul>
           <li>
-            Led the development of auditory attention decoding tools using Transformer models and ECoG neural data, achieving a
-            15% improvement in decoding accuracy.
+            Led SSAMBA, a self-supervised audio foundation model on the Mamba state-space architecture, 2x faster with
+            97.8% less GPU memory than transformers (SLT 2024; top-1% most-cited CS paper of 2025).
           </li>
           <li>
-            Authored and implemented SSAMBA, a self-supervised audio representation learning model accepted at SLT 2024,
-            surpassing Transformer models in speed by 2x and reducing GPU memory consumption by 97.8%.
+            Built Neuro2Semantic, a multimodal framework that reconstructs language from human intracranial EEG (Interspeech 2025).
           </li>
           <li>
-            Innovated multimodal learning techniques to improve model interpretability, advancing brain research.
-          </li>
-          <li>
-            Served as a reviewer for ICLR 2025, evaluating cutting-edge research in machine learning and neuroscience.
+            Peer reviewer for ICLR 2025 and 2026 and NeurIPS 2026.
           </li>
         </ul>
       ),
@@ -302,6 +301,7 @@ const Experience = () => {
       title: "Research Assistant",
       company: "Advanced Control Systems Laboratory, University of Tehran",
       date: "Jan 2022 - Sep 2023",
+      logo: "/images/ut_logo.png",
       description: (
         <ul>
           <li>
@@ -311,7 +311,7 @@ const Experience = () => {
             Tested the framework for desynchronization of brain networks to stop epileptic seizures.
           </li>
           <li>
-            Contributed to a paper on epileptic seizure control using data-driven approaches, which was published in an IEEE conference.
+            Contributed to a paper on epileptic seizure control using data-driven approaches, published at an IEEE conference.
           </li>
         </ul>
       ),
@@ -322,6 +322,7 @@ const Experience = () => {
       title: "Research Assistant",
       company: "Advanced Robotics and Intelligent Systems Laboratory, University of Tehran",
       date: "Jun 2022 - Sep 2022",
+      logo: "/images/ut_logo.png",
       description: (
         <ul>
           <li>
@@ -331,7 +332,7 @@ const Experience = () => {
             Developed a low-cost, efficient, and specific movement data acquisition system to motivate patients.
           </li>
           <li>
-            Conducted experiments to evaluate the designed platform, with findings submitted to ICROM2022.
+            Conducted experiments to evaluate the designed platform, with findings submitted to ICRoM 2022.
           </li>
         </ul>
       ),
@@ -390,9 +391,14 @@ const Experience = () => {
         >
           {experiences.map((exp) => (
             <ExperienceItem key={exp.id} variants={slideUp}>
-              <ExperienceDate position={exp.position}>{exp.date}</ExperienceDate>
+              <ExperienceDate>{exp.date}</ExperienceDate>
               <ExperienceContent position={exp.position}>
                 <MobileDate>{exp.date}</MobileDate>
+                {exp.logo && (
+                  <ExperienceLogo>
+                    <img src={exp.logo} alt={`${exp.company} logo`} />
+                  </ExperienceLogo>
+                )}
                 <ExperienceTitle>{exp.title}</ExperienceTitle>
                 <ExperienceCompany>{exp.company}</ExperienceCompany>
                 <ExperienceDescription>{exp.description}</ExperienceDescription>
