@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -45,6 +45,19 @@ const ContentContainer = styled(motion.div)`
 `;
 
 function App() {
+  const location = useLocation();
+
+  // Track every route change as a GA4 page_view (HashRouter SPA)
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+  }, [location]);
+
   return (
     <MainContainer>
       <Navbar />

@@ -144,6 +144,9 @@ const PublicationLink = styled(Button)`
 `;
 
 const Home = () => {
+  const track = (destination) =>
+    window.gtag && window.gtag('event', 'social_click', { destination });
+
   return (
     <>
       <HeroSection
@@ -171,9 +174,10 @@ const Home = () => {
             
             <SocialLinks>
               <SocialLink 
-                href="mailto:ss6928@columbia.edu" 
+                href="mailto:ss6928@columbia.edu"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
+                onClick={() => track('email')}
               >
                 <i className="fas fa-envelope"></i>
                 Email
@@ -183,24 +187,27 @@ const Home = () => {
                 href="https://www.linkedin.com/in/siavashshams/"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
+                onClick={() => track('linkedin')}
               >
                 <i className="fab fa-linkedin"></i>
                 LinkedIn
               </SocialLink>
               
               <SocialLink 
-                href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=xo02sD0AAAAJ&sortby=title" 
+                href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=xo02sD0AAAAJ&sortby=title"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
+                onClick={() => track('scholar')}
               >
                 <i className="ai ai-google-scholar"></i>
                 Scholar
               </SocialLink>
               
               <SocialLink 
-                href="https://github.com/SiavashShams" 
+                href="https://github.com/SiavashShams"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
+                onClick={() => track('github')}
               >
                 <i className="fab fa-github"></i>
                 GitHub
