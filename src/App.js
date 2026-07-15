@@ -47,12 +47,13 @@ const ContentContainer = styled(motion.div)`
 function App() {
   const location = useLocation();
 
-  // Track every route change as a GA4 page_view (HashRouter SPA)
+  // Track every route change as a GA4 page_view (HashRouter SPA).
+  // GA4 strips the #/... fragment from page_location, so hash routes must be
+  // reported as real paths or every view collapses into "/".
   useEffect(() => {
     if (window.gtag) {
       window.gtag('event', 'page_view', {
-        page_path: location.pathname + location.search,
-        page_location: window.location.href,
+        page_location: window.location.origin + location.pathname + location.search,
         page_title: document.title,
       });
     }
