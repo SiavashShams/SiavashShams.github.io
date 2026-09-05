@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PhotoCarousel from '../components/PhotoCarousel';
+import { previewPhotos } from '../data/photos';
 const publications = [
   { name: 'Neuro2Semantic', title: 'A Transfer Learning Framework for Semantic Reconstruction of Continuous Language from Human Intracranial EEG', authors: 'S. Shams, R. Antonello, G. Mischler, S. Bickel, A. Mehta, N. Mesgarani', venue: 'Interspeech', year: '2025', links: [['Paper', 'https://www.isca-archive.org/interspeech_2025/shams25_interspeech.pdf'], ['arXiv', 'https://arxiv.org/abs/2506.00381'], ['Code', 'https://github.com/SiavashShams/neuro2semantic']] },
   { name: 'SSAMBA', title: 'Self-Supervised Audio Representation Learning with Mamba State Space Model', authors: 'S. Shams, S. S. Dindar, X. Jiang, N. Mesgarani', venue: 'IEEE SLT', year: '2024', links: [['Paper', 'https://ieeexplore.ieee.org/document/10832304'], ['arXiv', 'https://arxiv.org/abs/2405.11831'], ['Code', 'https://github.com/SiavashShams/ssamba']] },
@@ -30,11 +32,7 @@ export default function Home() {
     </section>
     <section className="outside-teaser" aria-labelledby="outside-title">
       <div className="section-heading"><h2 id="outside-title">Outside work</h2><Link className="text-link" to="/miscellaneous">A few photographs <span aria-hidden="true">↗</span></Link></div>
-      <Link className="photo-preview-grid" to="/miscellaneous" aria-label="Browse the photography collection">
-        <figure><img src="/images/hobbies/n1.jpg" alt="Clouds over the Pacific coast" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">Pacific coast</figcaption></figure>
-        <figure><img src="/images/hobbies/n10.jpg" alt="An alpine lake framed by the Sierra Nevada" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">Sierra Nevada</figcaption></figure>
-        <figure><img src="/images/hobbies/n2.jpg" alt="The open road through the California hills" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">California hills</figcaption></figure>
-      </Link>
+      <PhotoCarousel photos={previewPhotos} />
     </section>
   </div>;
 }
