@@ -1,17 +1,41 @@
 export const photos = [
-    { id: 1,  src: "/images/hobbies/n1.jpg",  caption: "Coastal overlook on a road trip down the Pacific Coast Highway" },
-    { id: 2,  src: "/images/hobbies/n2.jpg",  caption: "The open road through the California hills" },
-    { id: 3,  src: "/images/hobbies/n3.jpg",  caption: "Storm light breaking over the Pacific" },
-    { id: 4,  src: "/images/hobbies/n4.jpg",  caption: "Black-and-white portrait against a cloudy sky" },
-    { id: 5,  src: "/images/hobbies/n5.jpg",  caption: "Sea caves carved into the coastal cliffs" },
-    { id: 6,  src: "/images/hobbies/n6.jpg",  caption: "A good boy taking in the ocean view" },
-    { id: 7,  src: "/images/hobbies/n7.jpg",  caption: "A lazy afternoon by Lake Tahoe" },
-    { id: 8,  src: "/images/hobbies/n8.jpg",  caption: "Driving the mountain roads near Tahoe" },
-    { id: 9,  src: "/images/hobbies/n9.jpg",  caption: "Taking in the alpine views" },
-    { id: 10, src: "/images/hobbies/n10.jpg", caption: "An alpine lake framed by the Sierra Nevada" },
-    { id: 11, src: "/images/hobbies/n11.jpg", caption: "Snowmelt rushing through the Sierra" },
-    { id: 12, src: "/images/hobbies/n12.jpg", caption: "Crystal-clear water along Tahoe's boulder shoreline" },
-    { id: 13, src: "/images/hobbies/n13.jpg", caption: "Geese gliding across a calm lake" }
-  ];
+  {"id": 14, "src": "/images/hobbies/n14.jpg", "caption": "The moon above trees along a quiet road at night", "shortCaption": "Moon over the road", "width": 1920, "height": 2560},
+  {"id": 15, "src": "/images/hobbies/n15.jpg", "caption": "A low view along the center of an empty road at dusk", "shortCaption": "The quiet road", "width": 1920, "height": 2560},
+  {"id": 16, "src": "/images/hobbies/n16.jpg", "caption": "An orange sunset over the hills behind a parked pickup", "shortCaption": "Last light on the hills", "width": 1920, "height": 2560},
+  {"id": 17, "src": "/images/hobbies/n17.jpg", "caption": "Golden sunlight streaming through a gap in a tree trunk", "shortCaption": "Sun through the trees", "width": 1920, "height": 2560},
+  {"id": 18, "src": "/images/hobbies/n18.jpg", "caption": "Waves washing over dark sand beneath a clear blue sky", "shortCaption": "At the water’s edge", "width": 1920, "height": 2560},
+  {"id": 19, "src": "/images/hobbies/n19.jpg", "caption": "A mound of sand on the beach with the ocean beyond", "shortCaption": "Built of sand", "width": 1920, "height": 2560},
+  {"id": 20, "src": "/images/hobbies/n20.jpg", "caption": "A herd in open grassland, seen through a car window", "shortCaption": "A grazing herd", "width": 1920, "height": 2560},
+  {"id": 21, "src": "/images/hobbies/n21.jpg", "caption": "A winding path leading toward the water and rolling hills", "shortCaption": "Toward the coast", "width": 1920, "height": 2560},
+  {"id": 22, "src": "/images/hobbies/n22.jpg", "caption": "A rocky headland rising above deep blue water", "shortCaption": "Above the water", "width": 1920, "height": 2560},
+  {"id": 23, "src": "/images/hobbies/n23.jpg", "caption": "A weathered boat resting in shallow water near the shore", "shortCaption": "Left by the tide", "width": 1920, "height": 2560},
+  {"id": 24, "src": "/images/hobbies/n24.jpg", "caption": "A roadway beneath orange sunset clouds, seen through a windshield", "shortCaption": "Sunset on the road", "width": 1920, "height": 2560},
+  {"id": 25, "src": "/images/hobbies/n25.jpg", "caption": "A distant city skyline across the water under a golden sky", "shortCaption": "Skyline at sunset", "width": 1920, "height": 2560},
+  {"id": 26, "src": "/images/hobbies/n26.jpg", "caption": "A parked vehicle beside the water, with moonlight reflecting on the surface", "shortCaption": "Moonlight by the water", "width": 1920, "height": 2560},
+  {"id": 27, "src": "/images/hobbies/n27.jpg", "caption": "A vehicle beside the ocean beneath a narrow band of sunset light", "shortCaption": "Last light offshore", "width": 1920, "height": 2560},
+  {"id": 28, "src": "/images/hobbies/n28.jpg", "caption": "Scattered stars against a dark blue night sky", "shortCaption": "A sky of stars", "width": 1920, "height": 2560},
+  {"id": 29, "src": "/images/hobbies/n29.jpg", "caption": "Silhouetted birds perched near a utility pole and tangled wires", "shortCaption": "Birds on wires", "width": 1920, "height": 2560},
+  {"id": 30, "src": "/images/hobbies/n30.jpg", "caption": "Blue and golden clouds above a quiet road and hillside", "shortCaption": "Evening cloudscape", "width": 1920, "height": 2560},
+  {"id": 31, "src": "/images/hobbies/n31.jpg", "caption": "Vivid pink clouds above a storefront and an empty parking lot", "shortCaption": "Parking lot sunset", "width": 1920, "height": 2560},
+  {"id": 32, "src": "/images/hobbies/n32.jpg", "caption": "A sheltered stretch of water framed by trees at dusk", "shortCaption": "Water through trees", "width": 1920, "height": 2560},
+  {"id": 33, "src": "/images/hobbies/n33.jpg", "caption": "A person looking out over the coast beneath dramatic clouds", "shortCaption": "Under storm clouds", "width": 2560, "height": 1597},
+  {"id": 1, "src": "/images/hobbies/n1.jpg", "caption": "Coastal overlook on a road trip down the Pacific Coast Highway", "shortCaption": "Pacific coast", "width": 1920, "height": 2560},
+  {"id": 2, "src": "/images/hobbies/n2.jpg", "caption": "The open road through the California hills", "shortCaption": "California hills", "width": 1920, "height": 2560},
+  {"id": 3, "src": "/images/hobbies/n3.jpg", "caption": "Storm light breaking over the Pacific", "shortCaption": "Storm light", "width": 1920, "height": 2560},
+  {"id": 4, "src": "/images/hobbies/n4.jpg", "caption": "Black-and-white portrait against a cloudy sky", "shortCaption": "A cloudy sky", "width": 1919, "height": 2560},
+  {"id": 5, "src": "/images/hobbies/n5.jpg", "caption": "Sea caves carved into the coastal cliffs", "shortCaption": "Sea caves", "width": 1920, "height": 2560},
+  {"id": 6, "src": "/images/hobbies/n6.jpg", "caption": "A good boy taking in the ocean view", "shortCaption": "By the ocean", "width": 1920, "height": 2560},
+  {"id": 7, "src": "/images/hobbies/n7.jpg", "caption": "A lazy afternoon by Lake Tahoe", "shortCaption": "Lake Tahoe", "width": 1919, "height": 2560},
+  {"id": 8, "src": "/images/hobbies/n8.jpg", "caption": "Driving the mountain roads near Tahoe", "shortCaption": "Mountain roads", "width": 1919, "height": 2560},
+  {"id": 9, "src": "/images/hobbies/n9.jpg", "caption": "Taking in the alpine views", "shortCaption": "Alpine views", "width": 1920, "height": 2560},
+  {"id": 10, "src": "/images/hobbies/n10.jpg", "caption": "An alpine lake framed by the Sierra Nevada", "shortCaption": "Sierra Nevada", "width": 1920, "height": 2560},
+  {"id": 11, "src": "/images/hobbies/n11.jpg", "caption": "Snowmelt rushing through the Sierra", "shortCaption": "Snowmelt", "width": 1920, "height": 2560},
+  {"id": 12, "src": "/images/hobbies/n12.jpg", "caption": "Crystal-clear water along Tahoe's boulder shoreline", "shortCaption": "Tahoe shoreline", "width": 1919, "height": 2560},
+  {"id": 13, "src": "/images/hobbies/n13.jpg", "caption": "Geese gliding across a calm lake", "shortCaption": "Still water", "width": 1920, "height": 2560},
+];
 
-export const previewPhotos = [photos[0], photos[9], photos[1], ...photos.filter(photo => ![1, 10, 2].includes(photo.id))];
+const featuredIds = [25, 18, 17];
+export const previewPhotos = [
+  ...featuredIds.map(id => photos.find(photo => photo.id === id)),
+  ...photos.filter(photo => !featuredIds.includes(photo.id))
+];

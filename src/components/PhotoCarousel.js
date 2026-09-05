@@ -2,11 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useIsPresent, useReducedMotion } from 'framer-motion';
 
-const shortCaptions = {
-  1: 'Pacific coast', 2: 'California hills', 3: 'Storm light', 4: 'A cloudy sky',
-  5: 'Sea caves', 6: 'By the ocean', 7: 'Lake Tahoe', 8: 'Mountain roads',
-  9: 'Alpine views', 10: 'Sierra Nevada', 11: 'Snowmelt', 12: 'Tahoe shoreline', 13: 'Still water'
-};
 const wrap = (index, total) => (index + total) % total;
 
 function PhotoPanel({ items, direction, full, reduced, onSwipe, onDrag }) {
@@ -23,8 +18,8 @@ function PhotoPanel({ items, direction, full, reduced, onSwipe, onDrag }) {
     onDrag={(_, info) => onDrag(info)} onDragEnd={(_, info) => onSwipe(info)}
     aria-hidden={!present} style={{ pointerEvents: present ? 'auto' : 'none' }}>
     {items.map(photo => full
-      ? <img key={photo.id} src={photo.src} alt={photo.caption} width="1920" height="2560" draggable={false}/>
-      : <figure key={photo.id}><img src={photo.src} alt={photo.caption} width="1920" height="2560" draggable={false}/><figcaption>{shortCaptions[photo.id]}</figcaption></figure>)}
+      ? <img key={photo.id} src={photo.src} alt={photo.caption} width={photo.width} height={photo.height} draggable={false}/>
+      : <figure key={photo.id}><div className="carousel-thumbnail"><img src={photo.src} alt={photo.caption} width={photo.width} height={photo.height} draggable={false}/></div><figcaption>{photo.shortCaption || photo.caption}</figcaption></figure>)}
   </motion.div>;
 }
 
