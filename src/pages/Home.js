@@ -28,6 +28,13 @@ export default function Home() {
         <div className="paper-content"><h3>{paper.name && <strong>{paper.name}: </strong>}{paper.title}</h3><p className="paper-authors">{paper.authors.split('S. Shams').map((part, i) => <React.Fragment key={i}>{i > 0 && <span className="author-self">S. Shams</span>}{part}</React.Fragment>)}</p><div className="text-links paper-links">{paper.links.map(([label, url]) => <a key={label} href={url} target="_blank" rel="noreferrer" aria-label={`${label}: ${paper.name || paper.title}`}>{label} <span aria-hidden="true">↗</span></a>)}</div></div>
       </article>)}</div>
     </section>
-    <section className="outside-teaser" aria-labelledby="outside-title"><div className="section-heading"><h2 id="outside-title">Outside work</h2><Link className="text-link" to="/miscellaneous">A few photographs <span aria-hidden="true">↗</span></Link></div><Link to="/miscellaneous" aria-label="Browse the photography collection"><img src="/images/hobbies/n1.jpg" alt="Clouds over the Pacific coast, photographed during a road trip" width="1920" height="2560" loading="lazy"/></Link><p className="photo-note">Along the Pacific Coast Highway.</p></section>
+    <section className="outside-teaser" aria-labelledby="outside-title">
+      <div className="section-heading"><h2 id="outside-title">Outside work</h2><Link className="text-link" to="/miscellaneous">A few photographs <span aria-hidden="true">↗</span></Link></div>
+      <Link className="photo-preview-grid" to="/miscellaneous" aria-label="Browse the photography collection">
+        <figure><img src="/images/hobbies/n1.jpg" alt="Clouds over the Pacific coast" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">Pacific coast</figcaption></figure>
+        <figure><img src="/images/hobbies/n10.jpg" alt="An alpine lake framed by the Sierra Nevada" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">Sierra Nevada</figcaption></figure>
+        <figure><img src="/images/hobbies/n2.jpg" alt="The open road through the California hills" width="1920" height="2560" loading="lazy"/><figcaption className="photo-note">California hills</figcaption></figure>
+      </Link>
+    </section>
   </div>;
 }
