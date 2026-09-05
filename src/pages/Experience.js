@@ -1,260 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import {
-  Container,
-  Section,
-  SectionTitle,
-  Card,
-  fadeIn,
-  staggerContainer,
-  slideUp
-} from '../components/StyledComponents';
-
-const TimelineSection = styled(Section)`
-  position: relative;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: var(--primary-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    @media (max-width: 768px) {
-      left: 30px;
-    }
-  }
-`;
-
-const ExperienceContainer = styled(motion.div)`
-  margin-bottom: 4rem;
-`;
-
-const ExperienceItem = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 4rem;
-  
-  @media (max-width: 768px) {
-    justify-content: flex-start;
-    margin-left: 60px;
-  }
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const ExperienceDate = styled.div`
-  position: absolute;
-  top: 5px;
-  min-width: 150px;
-  font-weight: 600;
-  color: var(--primary-color);
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  ${({ position }) => position === 'left' ? `
-    left: 50%;
-    padding-left: calc(2rem + 10px);
-    text-align: left;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      left: -10px;
-      top: 0;
-      background-color: var(--background-color);
-      border: 3px solid var(--primary-color);
-      border-radius: 50%;
-      z-index: 1;
-    }
-  ` : `
-    right: 50%;
-    padding-right: calc(2rem + 10px);
-    text-align: right;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      right: -10px;
-      top: 0;
-      background-color: var(--background-color);
-      border: 3px solid var(--primary-color);
-      border-radius: 50%;
-      z-index: 1;
-    }
-  `}
-`;
-
-const ExperienceContent = styled(Card)`
-  width: 45%;
-  position: relative;
-  
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 15px;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-  
-  ${({ position }) => position === 'left' ? `
-    margin-right: auto;
-    &:before {
-      right: -10px;
-      border-left: 10px solid var(--card-bg);
-    }
-  ` : `
-    margin-left: auto;
-    &:before {
-      left: -10px;
-      border-right: 10px solid var(--card-bg);
-    }
-  `}
-  
-  @media (max-width: 768px) {
-    &:before {
-      left: -10px;
-      border-right: 10px solid var(--card-bg);
-      border-left: none;
-    }
-  }
-`;
-
-const MobileDate = styled.p`
-  display: none;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 0.75rem;
-  
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
-
-const ExperienceLogo = styled.div`
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.75rem;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-    background: #ffffff;
-    padding: 3px;
-  }
-`;
-
-const ExperienceTitle = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-`;
-
-const ExperienceCompany = styled.h4`
-  font-size: 1.1rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-`;
-
-const ExperienceDescription = styled.div`
-  ul {
-    padding-left: 1.2rem;
-    
-    li {
-      margin-bottom: 0.5rem;
-    }
-  }
-`;
-
-const EducationContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-const EducationItem = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-`;
-
-const EducationLogo = styled.div`
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1rem;
-  
-  @media (min-width: 768px) {
-    margin-right: 2rem;
-    margin-bottom: 0;
-  }
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`;
-
-const EducationContent = styled.div`
-  flex: 1;
-`;
-
-const EducationDegree = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-`;
-
-const EducationSchool = styled.h4`
-  font-size: 1.1rem;
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
-`;
-
-const EducationPeriod = styled.p`
-  font-weight: 500;
-  margin-bottom: 1rem;
-`;
-
-const EducationDetails = styled.div`
-  ul {
-    padding-left: 1.2rem;
-    
-    li {
-      margin-bottom: 0.5rem;
-    }
-  }
-`;
-
-const Experience = () => {
+export default function Experience() {
   const experiences = [
     {
       id: 1,
       title: "Founding Software Engineer",
-      company: "Virtue AI (acqui-hired by Meta Superintelligence Labs, 2026)",
-      date: "Nov 2025 - Present",
+      company: "Virtue AI",
+      date: "Nov 2025 - Aug 2026",
       logo: "/images/virtue_logo.png",
       description: (
         <ul>
@@ -321,48 +72,6 @@ const Experience = () => {
         </ul>
       ),
       position: "right"
-    },
-    {
-      id: 4,
-      title: "Research Assistant",
-      company: "Advanced Control Systems Laboratory, University of Tehran",
-      date: "Jan 2022 - Sep 2023",
-      logo: "/images/ut_logo.png",
-      description: (
-        <ul>
-          <li>
-            Developed a comprehensive framework for the optimal control of complex networks, including optimal driver node selection.
-          </li>
-          <li>
-            Tested the framework for desynchronization of brain networks to stop epileptic seizures.
-          </li>
-          <li>
-            Contributed to a paper on epileptic seizure control using data-driven approaches, which was published in an IEEE conference.
-          </li>
-        </ul>
-      ),
-      position: "left"
-    },
-    {
-      id: 5,
-      title: "Research Assistant",
-      company: "Advanced Robotics and Intelligent Systems Laboratory, University of Tehran",
-      date: "Jun 2022 - Sep 2022",
-      logo: "/images/ut_logo.png",
-      description: (
-        <ul>
-          <li>
-            Designed a comprehensive platform for upper limb rehabilitation using gamification methods.
-          </li>
-          <li>
-            Developed a low-cost, efficient, and specific movement data acquisition system to motivate patients.
-          </li>
-          <li>
-            Conducted experiments to evaluate the designed platform, with findings submitted to ICROM2022.
-          </li>
-        </ul>
-      ),
-      position: "right"
     }
   ];
 
@@ -377,8 +86,6 @@ const Experience = () => {
         <ul>
           <li>Specialization in Machine Learning and Signal Processing</li>
           <li>GPA: 4.09/4.0</li>
-          <li>Relevant Coursework: Deep Learning, Machine Learning, Natural Language Processing, Computer Vision, Advanced Topics in AI</li>
-          <li>Graduate Research Assistant at NeuroTech Lab under Prof. Mesgarani, focusing on audio representation learning</li>
         </ul>
       )
     },
@@ -392,81 +99,16 @@ const Experience = () => {
         <ul>
           <li>Specialization in Control Systems and Signal Processing</li>
           <li>GPA: 3.91/4.0</li>
-          <li>Relevant Coursework: Digital Signal Processing, Linear Control Systems, Stochastic Processes, Linear Algebra</li>
-          <li>Research Assistant at Neural Systems Lab, working on EEG signal processing and seizure control</li>
         </ul>
       )
     }
   ];
 
-  return (
-    <Container>
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-      >
-        <SectionTitle>Work Experience</SectionTitle>
-      </motion.div>
-      
-      <TimelineSection>
-        <ExperienceContainer
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          {experiences.map((exp) => (
-            <ExperienceItem key={exp.id} variants={slideUp}>
-              <ExperienceDate position={exp.position}>{exp.date}</ExperienceDate>
-              <ExperienceContent position={exp.position}>
-                <MobileDate>{exp.date}</MobileDate>
-                {exp.logo && (
-                  <ExperienceLogo>
-                    <img src={exp.logo} alt={`${exp.company} logo`} />
-                  </ExperienceLogo>
-                )}
-                <ExperienceTitle>{exp.title}</ExperienceTitle>
-                <ExperienceCompany>{exp.company}</ExperienceCompany>
-                <ExperienceDescription>{exp.description}</ExperienceDescription>
-              </ExperienceContent>
-            </ExperienceItem>
-          ))}
-        </ExperienceContainer>
-      </TimelineSection>
-      
-      <Section>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        >
-          <SectionTitle>Education</SectionTitle>
-        </motion.div>
-        
-        <EducationContainer
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          {education.map((edu) => (
-            <motion.div key={edu.id} variants={slideUp}>
-              <EducationItem>
-                <EducationLogo>
-                  <img src={edu.logo} alt={`${edu.school} logo`} />
-                </EducationLogo>
-                <EducationContent>
-                  <EducationDegree>{edu.degree}</EducationDegree>
-                  <EducationSchool>{edu.school}</EducationSchool>
-                  <EducationPeriod>{edu.period}</EducationPeriod>
-                  <EducationDetails>{edu.details}</EducationDetails>
-                </EducationContent>
-              </EducationItem>
-            </motion.div>
-          ))}
-        </EducationContainer>
-      </Section>
-    </Container>
-  );
-};
-
-export default Experience; 
+  return <div className="shell inner-page">
+    <div className="page-heading"><p className="eyebrow">Research & engineering</p><h1>Experience</h1></div>
+    <section aria-label="Work experience" className="experience-list">{experiences.map(item => <article className="experience-row" key={item.id}>
+      <p className="experience-date">{item.date}</p><div><div className="organization"><img src={item.logo} alt="" width="36" height="36"/><p>{item.company}</p></div><h2>{item.title}</h2><div className="experience-detail">{item.description}</div></div>
+    </article>)}</section>
+    <section className="education-section" aria-labelledby="education-title"><div className="section-heading"><h2 id="education-title">Education</h2></div>{education.map(item => <article className="experience-row education-row" key={item.id}><p className="experience-date">{item.period}</p><div><div className="organization"><img src={item.logo} alt="" width="36" height="36"/><p>{item.school}</p></div><h3>{item.degree}</h3><div className="experience-detail">{item.details}</div></div></article>)}</section>
+  </div>;
+}

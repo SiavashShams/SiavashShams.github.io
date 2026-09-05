@@ -1,86 +1,33 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-
-export const ThemeContext = createContext({
-  theme: 'light',
-  toggleTheme: () => {},
-});
-
-export const GlobalStyles = createGlobalStyle`
+export const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {} });
+const GlobalStyles = createGlobalStyle`
   :root {
-    --primary-color: ${props => props.theme === 'light' ? '#0a66c2' : '#3a9fff'};
-    --secondary-color: ${props => props.theme === 'light' ? '#212529' : '#f8f9fa'};
-    --background-color: ${props => props.theme === 'light' ? '#ffffff' : '#121212'};
-    --text-color: ${props => props.theme === 'light' ? '#212529' : '#e9ecef'};
-    --card-bg: ${props => props.theme === 'light' ? '#ffffff' : '#1e1e1e'};
-    --nav-bg: ${props => props.theme === 'light' ? '#ffffff' : '#1e1e1e'};
-    --accent-color: ${props => props.theme === 'light' ? '#6c757d' : '#adb5bd'};
-    --hover-color: ${props => props.theme === 'light' ? '#f8f9fa' : '#2c2c2c'};
-    --border-color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.125)' : 'rgba(255, 255, 255, 0.125)'};
-    --shadow-color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0.35)'};
-    --transition: all 0.3s ease;
+    color-scheme: ${p => p.$mode};
+    --background-color: ${p => p.$mode === 'light' ? '#fdfdfc' : '#17191b'};
+    --text-color: ${p => p.$mode === 'light' ? '#34383d' : '#cbd0d5'};
+    --secondary-color: ${p => p.$mode === 'light' ? '#202429' : '#f0f1f2'};
+    --primary-color: ${p => p.$mode === 'light' ? '#335e85' : '#9fc5e7'};
+    --accent-color: ${p => p.$mode === 'light' ? '#666e77' : '#a1a9b2'};
+    --border-color: ${p => p.$mode === 'light' ? '#e0e3e5' : '#34393f'};
+    --hover-color: ${p => p.$mode === 'light' ? '#f2f4f5' : '#22262b'};
+    --card-bg: var(--background-color); --nav-bg: var(--background-color); --shadow-color: transparent;
+    --transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
   }
-
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: var(--transition);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--secondary-color);
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  }
-
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .card {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-    transition: var(--transition);
-  }
-
-  .text-muted {
-    color: var(--accent-color) !important;
-  }
-
-  .btn-outline-primary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-  }
-
-  .btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: ${props => props.theme === 'light' ? '#ffffff' : '#121212'};
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--background-color); color: var(--text-color); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { color: var(--secondary-color); font-weight: 500; line-height: 1.3; margin: 0; }
+  p { margin: 0; } a { color: inherit; text-decoration: none; text-underline-offset: .28em; } a:hover { color: var(--primary-color); }
+  button { font: inherit; color: inherit; cursor: pointer; } img { display: block; max-width: 100%; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid var(--primary-color); outline-offset: 5px; border-radius: 2px; }
+  ::selection { background: #d4e5f3; color: #202429; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 `;
-
 export const ThemeProvider = ({ children }) => {
-  // Check for saved theme preference or default to 'light'
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  const [theme, setTheme] = useState(savedTheme);
-
-  // Update localStorage when theme changes
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <GlobalStyles theme={theme} />
-      {children}
-    </ThemeContext.Provider>
-  );
-}; 
+  const [theme, setTheme] = useState(() => { try { return localStorage.getItem('siavash-preview-theme') === 'dark' ? 'dark' : 'light'; } catch { return 'light'; } });
+  useEffect(() => { try { localStorage.setItem('siavash-preview-theme', theme); } catch { /* Storage is optional. */ } }, [theme]);
+  const toggleTheme = () => setTheme(current => current === 'light' ? 'dark' : 'light');
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}><GlobalStyles $mode={theme} />{children}</ThemeContext.Provider>;
+};

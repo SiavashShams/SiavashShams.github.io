@@ -1,152 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import {
-  Container,
-  Section,
-  SectionTitle,
-  Card,
-  fadeIn,
-  staggerContainer,
-  slideUp
-} from '../components/StyledComponents';
-
-const CategoryTabs = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-`;
-
-const CategoryTab = styled.button`
-  background: ${props => props.active ? 'var(--primary-color)' : 'var(--card-bg)'};
-  color: ${props => props.active ? 'white' : 'var(--text-color)'};
-  border: none;
-  border-radius: 30px;
-  padding: 0.5rem 1.25rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px var(--shadow-color);
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow-color);
-    background: ${props => props.active ? 'var(--primary-color)' : 'var(--hover-color)'};
-  }
-`;
-
-const ProjectsGrid = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-`;
-
-const ProjectCard = styled(motion(Card))`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-color);
-  }
-`;
-
-const ProjectImage = styled.div`
-  height: 200px;
-  overflow: hidden;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: ${props => props.containImage ? 'contain' : 'cover'};
-    background-color: ${props => props.containImage ? 'var(--card-bg)' : 'transparent'};
-    transition: transform 0.5s ease;
-  }
-  
-  ${ProjectCard}:hover & img {
-    transform: scale(1.05);
-  }
-`;
-
-const CustomImageContainer = styled(ProjectImage)`
-  &.orchestrator img {
-    object-fit: contain;
-    background-color: var(--card-bg); /* Uses your theme's card background color */
-  }
-  
-  &.eeg img {
-    object-fit: contain;
-    background-color: var(--card-bg);
-  }
-`;
-
-const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: auto;
-  padding-top: 1rem;
-`;
-
-const Tag = styled.span`
-  background-color: var(--hover-color);
-  color: var(--accent-color);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.3rem 0.6rem;
-  border-radius: 30px;
-`;
-
-const ProjectTitle = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-`;
-
-const ProjectDescription = styled.p`
-  color: var(--text-color);
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-`;
-
-const ProjectLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-`;
-
-const ProjectLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: var(--secondary-color);
-  }
-  
-  svg {
-    font-size: 1.1rem;
-  }
-`;
-
-const Projects = () => {
+export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('all');
-  
-  const projects = [
+  const sourceProjects = [
     {
       id: 1,
       title: "Listen, Chat, and Edit on the Edge",
@@ -212,81 +67,23 @@ const Projects = () => {
     { id: 'nlp', label: 'Natural Language' }
   ];
   
-  const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
-  
-  return (
-    <Container>
-      <Section
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-      >
-        <SectionTitle>My Projects</SectionTitle>
-        
-        <CategoryTabs>
-          {categories.map(category => (
-            <CategoryTab
-              key={category.id}
-              active={activeCategory === category.id}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              {category.label}
-            </CategoryTab>
-          ))}
-        </CategoryTabs>
-        
-        <AnimatePresence mode="wait">
-          <ProjectsGrid
-            key={activeCategory}
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            {filteredProjects.map(project => (
-              <ProjectCard
-                key={project.id}
-                variants={slideUp}
-                layout
-              >
-                {project.image && (
-                  <ProjectImage containImage={project.id === 2 || project.id === 5}>
-                    <img src={project.image} alt={project.title} />
-                  </ProjectImage>
-                )}
-                
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
-                
-                <ProjectLinks>
-                  {project.github && (
-                    <ProjectLink href={project.github} target="_blank" rel="noopener noreferrer">
-                      <FontAwesomeIcon icon={faGithub} />
-                      GitHub
-                    </ProjectLink>
-                  )}
-                  {project.demo && (
-                    <ProjectLink href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <FontAwesomeIcon icon={faExternalLinkAlt} />
-                      Demo
-                    </ProjectLink>
-                  )}
-                </ProjectLinks>
-                
-                <Tags>
-                  {project.tags.map((tag, index) => (
-                    <Tag key={index}>{tag}</Tag>
-                  ))}
-                </Tags>
-              </ProjectCard>
-            ))}
-          </ProjectsGrid>
-        </AnimatePresence>
-      </Section>
-    </Container>
-  );
-};
-
-export default Projects; 
+  const summaries = {
+    1: 'An audio editor on NVIDIA Jetson Nano that combines source separation with language models. Edit audio with instructions such as “reduce the background noise” or “amplify the vocals.”',
+    2: 'Text-guided music generation with MusicGen and multimodal embeddings, turning descriptions into multi-instrument compositions.',
+    3: 'Fine-tuning GPT-2 for text generation and spam classification using the SMSSpamCollection dataset.',
+    4: 'A YOLO-based system for detecting motorcycle helmet use, with custom training data and non-maximum suppression.',
+    5: 'Matching EEG recordings to speech stimuli for the ICASSP 2024 Challenge, connecting neural signals with what a listener hears.',
+    6: 'Self-supervised audio representation learning with the Mamba state space model. Published at IEEE SLT 2024.'
+  };
+  const projects = [6, 1, 2, 5, 3, 4].map(id => sourceProjects.find(project => project.id === id));
+  const filteredProjects = projects.filter(project => activeCategory === 'all' || project.category === activeCategory);
+  return <div className="shell inner-page">
+    <div className="page-heading"><p className="eyebrow">Ideas, implemented</p><h1>Projects</h1><p>Experiments in audio, language, vision, and neural signals.</p></div>
+    <div className="project-filters" role="group" aria-label="Filter projects by topic">{categories.map(category => <button key={category.id} onClick={() => setActiveCategory(category.id)} aria-pressed={activeCategory === category.id}>{category.label.replace('All Projects', 'All projects')}</button>)}</div>
+    <p className="project-count" role="status">{filteredProjects.length} projects</p>
+    <div className="project-list">{filteredProjects.map(project => <article className="project-row" key={project.id}>
+      <div className="project-copy"><h2>{project.title}</h2><p className="project-description">{summaries[project.id]}</p><p className="project-tags">{project.tags.join(' · ')}</p><div className="text-links"><a href={project.github} target="_blank" rel="noreferrer" aria-label={`Code for ${project.title}`}>Code <span aria-hidden="true">↗</span></a>{project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`Paper for ${project.title}`}>Paper <span aria-hidden="true">↗</span></a>}</div></div>
+      <a className="project-visual" href={project.github} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`}><img src={project.image} alt={project.title} loading="lazy" width="220" height="160"/></a>
+    </article>)}</div>
+  </div>;
+}
